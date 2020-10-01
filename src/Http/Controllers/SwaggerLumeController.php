@@ -42,11 +42,17 @@ class SwaggerLumeController extends BaseController
             Generator::generateDocs();
         }
 
+        $secure = Request::secure();
+        
+        if (config('swagger-lume.force_https')) {
+            $secure = true;
+        }
+
         //need the / at the end to avoid CORS errors on Homestead systems.
         $response = new Response(
             view('swagger-lume::index', [
-                'secure' => Request::secure(),
-                'urlToDocs' => route('swagger-lume.docs'),
+                'secure' => $secure,
+                'urlToDocs' => route('swagger-lume.docs', [], $secure),
                 'operationsSorter' => config('swagger-lume.operations_sort'),
                 'configUrl' => config('swagger-lume.additional_config_url'),
                 'validatorUrl' => config('swagger-lume.validator_url'),
