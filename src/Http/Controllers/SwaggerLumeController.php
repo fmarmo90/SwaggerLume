@@ -43,8 +43,8 @@ class SwaggerLumeController extends BaseController
         }
 
         $secure = Request::secure();
-
-        if (ENV('SWAGGER_FORCE_HTTPS')) {
+        
+        if (config('swagger-lume.force_https')) {
             $secure = true;
         }
 

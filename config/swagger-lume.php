@@ -146,6 +146,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Turn this on to force all calls to secure https schema
+    |--------------------------------------------------------------------------
+     */
+    'force_https' => env('SWAGGER_FORCE_HTTPS', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Turn this off to remove swagger generation on production
     |--------------------------------------------------------------------------
      */
@@ -199,6 +206,6 @@ return [
     |--------------------------------------------------------------------------
      */
     'constants' => [
-        // 'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'http://my-default-host.com'),
+        // 'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'http://my-default-host.com')
     ],
 ];
