@@ -59,7 +59,7 @@ if (! function_exists('swagger_lume_asset')) {
 
         $secure = app('request')->secure();
 
-        if (ENV('ES_PRODUCCION')) {
+        if (ENV('SWAGGER_FORCE_HTTPS')) {
             $secure = true;
         }
 
